@@ -1,4 +1,6 @@
 import json
+from pprint import pprint
+
 
 def load_data():
     with open('data/data.json') as fp:
@@ -26,4 +28,4 @@ def attach_comments_to_posts(posts, comments):
             posts[i]['comment_count'] = len(post_comments)
         return posts
 
-pprint()
+pprint(load_data())
