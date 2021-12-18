@@ -28,4 +28,4 @@ def attach_comments_to_posts(posts, comments):
             posts[i]['comment_count'] = len(post_comments)
         return posts
 
-pprint(load_data())
+# pprint(load_data())
