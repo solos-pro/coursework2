@@ -17,7 +17,7 @@ def load_data():
 
 
 def attach_comments_to_posts(posts, comments):
-    for i, post enumerate(posts):
+    for i, post in enumerate(posts):
         pk = post.get('pk')
         post_comments = []
         for comment in comments:
@@ -25,3 +25,5 @@ def attach_comments_to_posts(posts, comments):
                 post_comments.append(comment)
             posts[i]['comment_count'] = len(post_comments)
         return posts
+
+pprint()
