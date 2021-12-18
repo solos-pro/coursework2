@@ -26,6 +26,6 @@ def attach_comments_to_posts(posts, comments):
             if comment.get('post_id') == pk:
                 post_comments.append(comment)
             posts[i]['comment_count'] = len(post_comments)
-        return posts
+    return posts
 
-# pprint(load_data())
+pprint(load_data())
