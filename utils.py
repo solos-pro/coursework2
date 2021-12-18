@@ -28,20 +28,21 @@ def prepare_posts(posts, comments):
             posts[i]['comment_count'] = len(post_comments)
 
         posts[i]['content'] = tegify_content(posts[i]['content'])
-        pprint(posts)
+        # pprint(posts)
     return posts
 
 # pprint(load_data())
 
+#TODO: add " post.content|safe"
 def tegify_content(content):
     words = content.split(" ")
     for i, word in enumerate(words):
         if word.startswith("#"):
             tag = word.replace("#", "")
-            link = f"<a href='/tag/{tag}>'{word}</a>"
+            link = f"<a href=/tag/{tag}>{word}</a>"
             words[i] = link
-    print(words)
-    print(" ".join(words))
+    # print(words)
+    # print(" ".join(words))
     return " ".join(words)
 
 tegify_content("#egg #peece world #travel")
