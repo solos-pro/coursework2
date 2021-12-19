@@ -27,7 +27,14 @@ def search_page():
                 post["content"] = post["content"][:50]
                 searched_posts.append(post)
 
-    return render_template("search.html", posts=searched_posts, num=len(searched_posts))
+    return render_template("search.html", posts=searched_posts[:9], num=len(searched_posts))    # цифра - количество постов
+
+@app.route("/user_feed/<username>/")
+def user_feed(username):
+    for post in posts:
+        if post["poster_name"] == username:
+            return render_template("user-feed.html", **post)
+
 
 # with app.test_request_context():
 #     print(url_for('/search/'))
