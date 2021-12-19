@@ -1,5 +1,11 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 from utils import *
+import os
+
+BASEDIR = os.path.abspath(os.path.dirname(__file__))
+path_basedir = os.path.join(BASEDIR)
+path_css = os.path.join(BASEDIR, 'css')
+path_img = os.path.join(BASEDIR, 'img')
 
 posts, comments, bookmarks = load_data()
 
@@ -12,15 +18,15 @@ def page_index():
 
 @app.route("/search/")
 def search_page():
-    name = request.args.get("s")
-    with open("candidates.json") as f:
-        candidates = json.load(f)
-    users = []
-    if name:
-        for candidate in candidates:
-            if name in candidate["name"]:
-                users.append(candidate["name"])
+    search_query = request.args.get("word")
+    searched_posts = []
+    if search_query:
+        for post in posts:
+            if search_query in post["content"]:
+                post["content"] = post["content"][:50]
+                searched_posts.append(post)
 
-    return render_template("search.html", users=users, cnt=len(users))
+    return render_template("search.html", posts=searched_posts, num=len(searched_posts))
+
 
 app.run(debug=True)

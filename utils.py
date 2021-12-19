@@ -33,7 +33,6 @@ def prepare_posts(posts, comments):
 
 # pprint(load_data())
 
-#TODO: add " post.content|safe"
 def tegify_content(content):
     words = content.split(" ")
     for i, word in enumerate(words):

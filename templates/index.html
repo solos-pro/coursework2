@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SKYPROGRAM</title>
+  <title>index</title>
   <link href="/static/css/styles.min.css" rel="stylesheet">
 </head>
 
@@ -39,9 +39,10 @@
         </a>
         <p class="item__descr">{{ post.content |safe}}</p>
         <div class="item__post-info">
-          <p class="item__comments-counter">{{ post.comment_count }} комментариев </p>
+          <p class="item__comments-counter">Комментариев: {{ post.comment_count }} </p>
           <div class="item__counter">
-            <img src="static/img/eye.png" alt="" class="item__counter-icon" width="26">
+<!--            <img src="static/img/eye.png" alt="" class="item__counter-icon" width="26">-->
+            <img src="{{url_for('static', filename='eye.png')}}" alt="" class="item__counter-icon" width="26">
             <span class="item__counter-text">{{ post.views_count }}</span>
           </div>
         </div>
