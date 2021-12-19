@@ -31,9 +31,13 @@ def search_page():
 
 @app.route("/user_feed/<username>/")
 def user_feed(username):
+    user_posts = []
     for post in posts:
         if post["poster_name"] == username:
-            return render_template("user-feed.html", **post)
+            post["content"] = post["content"][:50]
+            user_posts.append(post)
+    pprint(user_posts)
+    return render_template("user-feed.html", posts=user_posts)
 
 
 # with app.test_request_context():
