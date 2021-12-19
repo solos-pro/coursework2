@@ -9,7 +9,8 @@ path_img = os.path.join(BASEDIR, 'img')
 
 posts, comments, bookmarks = load_data()
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
+
 
 @app.route('/',)
 def page_index():
@@ -28,5 +29,7 @@ def search_page():
 
     return render_template("search.html", posts=searched_posts, num=len(searched_posts))
 
+# with app.test_request_context():
+#     print(url_for('/search/'))
 
 app.run(debug=True)
