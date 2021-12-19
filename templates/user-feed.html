@@ -41,10 +41,10 @@
         </a>
         <p class="item__descr"><a href="#" class="item__tag">#food</a> {{ post.content }} </p>    <!-- Текст описания коротки... -->
         <div class="item__post-info">
-          <p class="item__comments-counter">13 комментариев</p>
+          <p class="item__comments-counter">Комментариев: {{ post.comment_count }}</p>
           <div class="item__counter">
             <img src="{{url_for('static', filename='img/eye.png')}}" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">212</span>
+            <span class="item__counter-text">{{ post.views_count }}</span>
           </div>
         </div>
         <div class="item__post-bottom">
