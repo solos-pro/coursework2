@@ -2,10 +2,10 @@ from flask import Flask, request, render_template, url_for
 from utils import *
 import os
 
-BASEDIR = os.path.abspath(os.path.dirname(__file__))
-path_basedir = os.path.join(BASEDIR)
-path_css = os.path.join(BASEDIR, 'css')
-path_img = os.path.join(BASEDIR, 'img')
+# BASEDIR = os.path.abspath(os.path.dirname(__file__))
+# path_basedir = os.path.join(BASEDIR)
+# path_css = os.path.join(BASEDIR, 'css')
+# path_img = os.path.join(BASEDIR, 'img')
 
 posts, comments, bookmarks = load_data()
 
