@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, url_for
 from utils import *
+from pprint import pprint
 import os
 
 # BASEDIR = os.path.abspath(os.path.dirname(__file__))
@@ -8,7 +9,9 @@ import os
 # path_img = os.path.join(BASEDIR, 'img')
 
 posts, comments, bookmarks = load_data()
-
+# pprint(posts[1])
+# print('\n',posts[1]['content'])
+# print('\n',posts[1]['poster_name'])
 app = Flask(__name__, static_url_path='/static')
 
 
@@ -36,8 +39,15 @@ def user_feed(username):
         if post["poster_name"] == username:
             post["content"] = post["content"][:50]
             user_posts.append(post)
-    pprint(user_posts)
+    # pprint(user_posts)
     return render_template("user-feed.html", posts=user_posts)
+
+@app.route("/posts/<postid>/", methods=["GET", "POST"])
+def post(postid=1):
+    if request.method == "GET":
+        return render_template("post.html", posts=posts[int(postid)])
+
+
 
 
 # with app.test_request_context():

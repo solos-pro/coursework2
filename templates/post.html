@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>post</title>
-  <link href="css/styles.min.css" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/styles.min.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
             <span class="item__username">Username</span>
           </a>
           <button type="button" class="item__bookmark-btn">
-            <img src="img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
+            <img src="{{url_for('static', filename='img/bookmark.png')}}" alt="" class="item__bookmark-icon" width="24">
           </button>
         </div>
         <a href="" class="item__post-link">
