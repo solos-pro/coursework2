@@ -9,15 +9,11 @@ import os
 # path_img = os.path.join(BASEDIR, 'img')
 
 posts, comments, bookmarks = load_data()
-# pprint(posts[1])
-# print('\n',posts[1]['content'])
-# print('\n',posts[1]['poster_name'])
 app = Flask(__name__, static_url_path='/static')
 
 
 @app.route('/',)
 def page_index():
-    # return 'server works'
     return render_template('index.html', posts=posts)
 
 @app.route("/search/")
@@ -37,15 +33,21 @@ def user_feed(username):
     user_posts = []
     for post in posts:
         if post["poster_name"] == username:
-            post["content"] = post["content"][:50]
+            post["content"] = post["content"]#[:50]
             user_posts.append(post)
-    # pprint(user_posts)
     return render_template("user-feed.html", posts=user_posts)
 
 @app.route("/posts/<postid>/", methods=["GET", "POST"])
 def post(postid=1):
     if request.method == "GET":
-        return render_template("post.html", posts=posts[int(postid)])
+        print(posts[int(postid)-1])
+        print(posts[int(postid)-1].get('pk'))
+        post_comments = []
+        for post_comment in comments:
+            if post_comment['post_id'] == int(postid):
+                post_comments.append(post_comment)
+        print(post_comments)
+        return render_template("post.html", posts=posts[int(postid)-1], comments=post_comments)
 
 
 

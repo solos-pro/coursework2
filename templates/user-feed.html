@@ -40,7 +40,7 @@
         <a href="/post.html" class="item__post-link">
           <img src="{{ post.pic }}" alt="" width="348" class="item__post-img">
         </a>
-        <p class="item__descr"><a href="#" class="item__tag">#food</a> {{ post.content }} </p>    <!-- Текст описания коротки... -->
+        <p class="item__descr"><a href="#" class="item__tag">#food</a> {{ post.content }}... </p>    <!-- Текст описания коротки... -->
         <div class="item__post-info">
           <p class="item__comments-counter">Комментариев: {{ post.comment_count }}</p>
           <div class="item__counter">
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="item__post-bottom">
-          <a href="/post.html" class="item__btn-more">Подробнее</a>
+          <a href="/posts/{{ post.pk }}" class="item__btn-more">Подробнее</a>
           <button type="button" class="item__bookmark-btn">
             <img src="{{url_for('static', filename='img/bookmark.png')}}" alt="" class="item__bookmark-icon" width="24">
           </button>

@@ -28,10 +28,8 @@ def prepare_posts(posts, comments):
             posts[i]['comment_count'] = len(post_comments)
 
         posts[i]['content'] = tegify_content(posts[i]['content'])
-        # pprint(posts)
     return posts
 
-# pprint(load_data())
 
 def tegify_content(content):
     words = content.split(" ")
@@ -40,8 +38,6 @@ def tegify_content(content):
             tag = word.replace("#", "")
             link = f"<a href=/tag/{tag}>{word}</a>"
             words[i] = link
-    # print(words)
-    # print(" ".join(words))
     return " ".join(words)
 
-tegify_content("#egg #peece world #travel")
+# tegify_content("#egg #peece world #travel")
