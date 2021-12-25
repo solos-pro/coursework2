@@ -3,11 +3,6 @@ from utils import *
 from pprint import pprint
 import os
 
-# BASEDIR = os.path.abspath(os.path.dirname(__file__))
-# path_basedir = os.path.join(BASEDIR)
-# path_css = os.path.join(BASEDIR, 'css')
-# path_img = os.path.join(BASEDIR, 'img')
-
 posts, comments, bookmarks = load_data()
 app = Flask(__name__, static_url_path='/static')
 
