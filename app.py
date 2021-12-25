@@ -55,5 +55,6 @@ def post(postid=1):
 # with app.test_request_context():
 #     print(url_for('/search/'))
 
-app.run()
+if __name__ == "__main__":
+    app.run()
 # app.run(debug=True)
