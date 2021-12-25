@@ -50,11 +50,6 @@ def post(postid=1):
         return render_template("post.html", posts=posts[int(postid)-1], comments=post_comments)
 
 
-
-
-# with app.test_request_context():
-#     print(url_for('/search/'))
-
 if __name__ == "__main__":
     app.run()
 # app.run(debug=True)
