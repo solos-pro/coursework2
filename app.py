@@ -40,13 +40,13 @@ def user_feed(username):
 @app.route("/posts/<postid>/", methods=["GET", "POST"])
 def post(postid=1):
     if request.method == "GET":
-        print(posts[int(postid)-1])
-        print(posts[int(postid)-1].get('pk'))
+        # print(posts[int(postid)-1])
+        # print(posts[int(postid)-1].get('pk'))
         post_comments = []
         for post_comment in comments:
             if post_comment['post_id'] == int(postid):
                 post_comments.append(post_comment)
-        print(post_comments)
+        # print(post_comments)
         return render_template("post.html", posts=posts[int(postid)-1], comments=post_comments)
 
 
