@@ -12,9 +12,9 @@ posts, comments, bookmarks = load_data()
 app = Flask(__name__, static_url_path='/static')
 
 
-@app.route('/',)
+@app.route("/",)
 def page_index():
-    return render_template('index.html', posts=posts)
+    return render_template("index.html", posts=posts)
 
 @app.route("/search/")
 def search_page():
